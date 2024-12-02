@@ -1,0 +1,50 @@
+@use '../../scss/base/functions.scss';
+@use "sass:map";
+header{
+	>button{
+		@include functions.flex(row,nowrap,flex-start,stretch,$gap:5%);
+		opacity:functions.$opacity;
+		@include functions.transition(opacity);
+		mix-blend-mode:functions.$mix-blend-mode;
+		margin-left:2%;
+		width:16vw;
+		&:hover{
+			opacity:1;
+		}
+		a{
+			@include functions.text(3em,700,map.get(functions.$colors,"color-dark-void"),left,uppercase);
+		}
+		svg{
+			fill:map.get(functions.$colors,"color-dark-void");
+			width:calc(functions.$icon-width*4);
+		}
+	}
+	nav{
+		@include functions.position(fixed,$top:0);
+		height:100%;
+		width:30%;
+		background-color:map.get(functions.$colors,"color-white");
+		padding:2%;
+		button{
+			@include functions.flex(row,nowrap,flex-end,stretch);
+			opacity:functions.$opacity;
+			@include functions.transition(opacity);
+			margin-bottom:10%;
+			width:100%;
+			&:hover{
+				opacity:1;
+			}
+			svg{
+				fill:map.get(functions.$colors,"color-dark-void");
+				width:calc(functions.$icon-width*2);
+			}
+		}
+		ul{
+			li{
+				a{
+					@include functions.enlace(map.get(functions.$colors,"color-void"),map.get(functions.$colors,"color-light-void"));
+				}
+			}
+		}
+	}
+}

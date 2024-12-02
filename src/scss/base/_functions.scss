@@ -1,0 +1,72 @@
+@use "sass:meta";
+@use 'sass:list';
+@use "sass:map";
+@use "./generals";
+@forward "./generals";
+//MIXIN TEXT
+@mixin text($font-size,$font-weight,$text-color,$text-align,$text-transform:none){
+	font-size:$font-size;
+	font-weight:$font-weight;
+	color:$text-color;
+	text-align:$text-align;
+	@if($text-transform != "none"){
+		text-transform:$text-transform;
+	}	
+}
+//MIXIN ENLACES
+@mixin enlace($color-hover,$line-hover){
+	@include text(2em,400,$color-hover,left);
+	@include multiple-transition(color,text-decoration-line);
+	text-decoration-line:line-through none 2px;
+	&:hover{
+		color:$line-hover;
+		text-decoration-line:generals.$text-decoration-line;
+	}
+}
+//MIXIN FLEX
+@mixin flex($flex-direction,$flex-wrap,$justify-content,$align-items,$align-content:normal,$gap:0){
+	display:flex;
+	flex-direction:$flex-direction;
+	flex-wrap:$flex-wrap;
+	justify-content:$justify-content;
+	align-items:$align-items;
+	@if($flex-wrap == "wrap" or $flex-wrap == "wrap-reverse"){
+		align-content:$align-content;
+	}
+	@if($gap != 0){
+		gap:$gap;
+	}
+}
+//MIXIN GRID
+@mixin grid($grid-template-columns,$grid-template-rows,$grid-template-areas,$justify-items:stretch,
+	$align-items:stretch,$justify-content:stretch,$align-content:stretch){
+	display:grid;
+	grid-template-columns:$grid-template-columns;
+	grid-template-rows:$grid-template-rows;
+	grid-template-areas:$grid-template-areas;
+	@if($justify-items != stretch){
+		justify-items:$justify-items;
+	}@else if($align-items != stretch){
+		align-items:$align-items;
+	}@else if($justify-content != stretch){
+		justify-content:$justify-content;
+	}@else if($align-content != stretch){
+		align-content:$align-content;
+	}
+}
+//TRANSITIONS
+@mixin transition($transition){
+	transition:$transition generals.$transition-duration generals.$transition-function;
+}
+@mixin multiple-transition($transitions...){
+	transition:$transitions;
+	transition-duration:generals.$transition-duration;
+	transition-timing-function:generals.$transition-function;
+}
+//MIXIN POSITION
+@mixin position($position,$directions...){
+	position:$position;
+	@each $name, $direction in meta.keywords($directions){
+		#{$name}:$direction;
+	}
+}

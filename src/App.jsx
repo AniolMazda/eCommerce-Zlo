@@ -1,9 +1,13 @@
 import './App.scss'
-
+import Header from './components/header/Header.jsx'
+import Main from './components/main/Main.jsx'
 function App() {
-  let titulo = "El mero mundo";
+
   return (
-    <h1>{titulo}</h1>
+    <>
+      <Header />
+      <Main />
+    </>
   )
 }
 

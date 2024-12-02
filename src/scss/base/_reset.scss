@@ -4,6 +4,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
 /* Prevent font size inflation */
@@ -21,14 +23,13 @@ figure, blockquote, dl, dd {
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
-ol[role='list'] {
+ol[role='list'],ul,ol {
   list-style: none;
 }
 
 /* Set core body defaults */
 body {
   min-height: 100dvh;
-  line-height: 1.5;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -44,9 +45,16 @@ h3, h4 {
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a:not([class]), a{
   text-decoration-skip-ink: auto;
+  text-decoration:none;
   color: currentColor;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
 }
 
 /* Make images easier to work with */

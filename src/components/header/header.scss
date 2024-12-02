@@ -1,0 +1,10 @@
+@use '../../scss/base/_functions.scss';
+header{
+	@include functions.flex(row,nowrap,space-between,center);
+	padding-top:2%;
+	@include functions.position(sticky,$top:0);
+	img{
+		width:15%;
+		mix-blend-mode:functions.$mix-blend-mode;
+	}
+}

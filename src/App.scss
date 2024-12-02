@@ -1,0 +1,5 @@
+@use './scss/base/_functions.scss';
+h1,h2,h3,h4,h5,h6,p,a,button,article{
+	font-family:functions.$font-family;
+	font-variant-numeric: lining-nums;
+}
