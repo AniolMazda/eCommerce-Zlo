@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from './Navbar.jsx'
 function NavbarContainer() {
 	const [menu,setMenu] = useState(false);
@@ -6,7 +6,9 @@ function NavbarContainer() {
 		setMenu( !menu );
 	}
   	return (
-    	<Navbar cambiarMenu={viewMenu} valorMenu={menu} />
+  		menu === true ?
+    		<Navbar cambiarMenu={viewMenu} valorClaseMenu={"open-menu"}/>
+  		:	<Navbar cambiarMenu={viewMenu} valorClaseMenu={"close-menu"}/>
   	)
 }
 

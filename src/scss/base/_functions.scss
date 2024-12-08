@@ -54,7 +54,7 @@
 		align-content:$align-content;
 	}
 }
-//TRANSITIONS
+//MIXIN TRANSITIONS
 @mixin transition($transition){
 	transition:$transition generals.$transition-duration generals.$transition-function;
 }
@@ -62,6 +62,21 @@
 	transition:$transitions;
 	transition-duration:generals.$transition-duration;
 	transition-timing-function:generals.$transition-function;
+}
+//MIXIN ANIMATIONS
+@mixin animation($animation,$animation-duration:0.5s,$animation-delay:0,$animation-iteration:1,
+	$animation-direction:normal,$animation-timing-function:ease-out,$animation-fill-mode:none){
+	animation-name:$animation;
+	animation-duration:$animation-duration;
+	@if($animation-delay != 0){
+		animation-delay:$animation-delay;
+	}
+	animation-iteration-count:$animation-iteration;
+	animation-direction:$animation-direction;
+	animation-timing-function:$animation-timing-function;
+	@if($animation-fill-mode != none){
+		animation-fill-mode:$animation-fill-mode;
+	}	
 }
 //MIXIN POSITION
 @mixin position($position,$directions...){

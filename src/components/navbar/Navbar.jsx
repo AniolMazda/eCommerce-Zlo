@@ -1,6 +1,6 @@
 import './navbar.scss'
 
-function Navbar({cambiarMenu,valorMenu}) {
+function Navbar({cambiarMenu,valorClaseMenu}) {
   return (
     <>
     <button onClick={cambiarMenu}>
@@ -13,8 +13,7 @@ function Navbar({cambiarMenu,valorMenu}) {
       </svg>
       <a>Menu</a>
     </button>
-    {valorMenu === true &&
-    <nav>
+    <nav className={valorClaseMenu}>
       <button onClick={cambiarMenu}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
           <rect x="-3.24" y="12.03" width="36.48" height="5.95" transform="translate(-6.21 15) rotate(-45)"/>
@@ -26,7 +25,6 @@ function Navbar({cambiarMenu,valorMenu}) {
         <li><a href="#">LPs</a></li>
       </ul>
     </nav>
-    }
     </>
   )
 }
