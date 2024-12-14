@@ -23,7 +23,7 @@ header{
 		@include functions.position(fixed,$top:0);
 		height:100%;
 		width:30%;
-		background-color:map.get(functions.$colors,"color-white");
+		background-color:map.get(functions.$colors,"color-light-grey");
 		padding:2%;
 		button{
 			@include functions.flex(row,nowrap,flex-end,stretch);

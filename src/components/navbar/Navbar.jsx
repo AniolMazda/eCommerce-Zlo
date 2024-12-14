@@ -23,6 +23,8 @@ function Navbar({cambiarMenu,valorClaseMenu}) {
       <ul>
         <li><a href="#">CDs</a></li>
         <li><a href="#">LPs</a></li>
+        <li><a href="#">T-Shirts</a></li>
+        <li><a href="#">Hoodies</a></li>
       </ul>
     </nav>
     </>

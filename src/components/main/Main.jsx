@@ -1,9 +1,9 @@
 import './main.scss'
-import ItemList from './itemlist/ItemList.jsx'
+import ItemListContainer from '../itemList/ItemListContainer.jsx'
 function Main() {
 	return(
 		<main>
-			<ItemList categoria={"CDs"}/>
+			<ItemListContainer />
 		</main>
 	)
 }

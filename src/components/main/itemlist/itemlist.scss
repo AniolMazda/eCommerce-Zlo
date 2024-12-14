@@ -1,8 +1,0 @@
-@use '../../../scss/base/functions.scss';
-@use "sass:map";
-section{
-	h1{
-		@include functions.text(3em,700,map.get(functions.$colors,"color-void"),center,uppercase);
-		text-decoration:functions.$text-decoration-line;
-	}
-}
