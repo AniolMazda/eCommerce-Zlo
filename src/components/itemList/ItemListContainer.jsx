@@ -16,7 +16,7 @@ function ItemListContainer() {
     }, [])
 
   	return (
-  		<ItemList arrayProductos={products}/>
+  		<ItemList arrayProductos={products} categoria="CDS"/>
   	)
 }
 

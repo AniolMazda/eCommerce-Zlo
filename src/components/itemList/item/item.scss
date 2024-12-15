@@ -1,0 +1,4 @@
+@use "../../../scss/base/functions.scss";
+.card{
+    @include functions.flex(column,nowrap,center,flex-start);
+}

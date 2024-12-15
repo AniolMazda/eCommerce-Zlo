@@ -4,7 +4,7 @@ const products = [
         name:"CD Lógica de la Muerte",
         description:"Presentación de CD del EP-Demo llamado Logica de la muerte",
         category:"CDs",
-        image:"../../assets/cd-logica.png",
+        image:"/img/cd-logica.png",
         price:20,
         stock:3,
         songs:{
@@ -23,7 +23,7 @@ const products = [
         name:"LP Lógica de la Muerte",
         description:"Presentación de LP del EP-Demo llamado Logica de la muerte",
         category:"LPs",
-        image:"../../assets/ld-logica.png",
+        image:"/img/lp-logica.png",
         price:40,
         stock:2,
         songs:{
