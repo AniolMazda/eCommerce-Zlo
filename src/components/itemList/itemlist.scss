@@ -1,0 +1,5 @@
+@use "../../scss/base/functions.scss";
+.item-list{
+	@include functions.grid(repeat(3,1fr),repeat(auto-fill, minmax(470px, 1fr)));
+	column-gap:3%;
+}

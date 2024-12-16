@@ -1,7 +1,7 @@
 const products = [
     {
         id:1,
-        name:"CD Lógica de la Muerte",
+        name:"Lógica de la Muerte",
         description:"Presentación de CD del EP-Demo llamado Logica de la muerte",
         category:"CDs",
         image:"/img/cd-logica.png",
@@ -20,7 +20,7 @@ const products = [
     },
     {
         id:2,
-        name:"LP Lógica de la Muerte",
+        name:"Lógica de la Muerte",
         description:"Presentación de LP del EP-Demo llamado Logica de la muerte",
         category:"LPs",
         image:"/img/lp-logica.png",
@@ -42,7 +42,7 @@ const getProducts = () => {
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
             resolve(products)
-        }),2000;
+        },2000);
     });
 }
  export { getProducts }

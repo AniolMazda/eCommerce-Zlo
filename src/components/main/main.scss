@@ -1,5 +1,75 @@
 @use '../../scss/base/functions.scss';
+@use "sass:map";
+@use 'sass:math';
 main{
 	margin-top:5%;
 	@include functions.flex(column,nowrap,flex-start,center);
+	padding:0 5%;
+	h1{
+		@include functions.text(4em,600,map.get(functions.$colors,"color-void"),center,uppercase);
+		text-decoration:functions.$text-decoration-line;
+		margin-bottom:5%;
+	}
+	.boton-default{
+		$size:1.3em;
+		$size-box:40px;
+		@include functions.text($size,600,map.get(functions.$colors,"color-white"),center,uppercase);
+		background-color:map.get(functions.$colors,"color-void");
+		padding:calc($size - 0.8em) calc($size + 0.5em);
+		letter-spacing:-2px;
+		@include functions.custom-transition(all,1s,cubic-bezier(0.890, -0.170, 0.140, 1.225));
+		overflow:hidden;
+		position:relative;
+		&:hover{
+			 margin-left: 10px;
+			.top{
+				top: -5px;
+				transition-delay:0.35s;
+			}
+			.bottom{
+				bottom:-5px;
+				transition-delay:0.35s;
+			}
+			&:before{
+				width: 130%;
+			}
+		}
+		&:focus{
+			margin-left: 10px;
+		}
+		&:active{
+			margin-left: 10px;
+		}
+		&:before{
+			content: '';
+	  		height: 1px;
+	  		width: $size-box;
+	  		background-color:map.get(functions.$colors,"color-white");
+	  		position: absolute;
+	  		margin-top: calc($size-box / 3);
+	  		right:-$size-box;
+	  		@include functions.custom-transition(all,1s,cubic-bezier(0.890, -0.170, 0.140, 1.225));
+		}
+		.top{
+			position: relative;
+	  		height: calc($size-box / 3);
+	  		overflow: hidden;
+	  		top: 0;
+	  		@include functions.custom-transition(all,300ms,cubic-bezier(1.000, -0.055, 0.025, 1.040));
+	  		transition-delay:0.35s;
+		}
+		.bottom{
+			position: relative;
+			height: calc($size-box / 3);
+	  		overflow: hidden;
+	  		bottom: 0;
+	  		@include functions.custom-transition(all,300ms,cubic-bezier(1.000, -0.055, 0.025, 1.040));
+	  		transition-delay:0.35s;
+	  		span{
+	  			top: calc(($size-box / 3)*-1);
+	  			position: absolute;
+	  			left:0;
+	  		}
+		}
+	}
 }

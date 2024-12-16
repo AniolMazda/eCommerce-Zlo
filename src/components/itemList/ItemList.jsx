@@ -1,15 +1,17 @@
 import './itemlist.scss'
-import Item from './item/Item.jsx'
+import Item from './item/Item'
 
 function ItemList({arrayProductos,categoria}) {
   return (
     <div>
-      <h2>{categoria}</h2>
-    {
+      <h1>{categoria}</h1>
+      <div className="item-list">
+      {
         arrayProductos.map((producto)=>{
           return <Item producto={producto} key={producto.id}/>
         })
-    }
+      }
+      </div>
     </div>
   )
 }

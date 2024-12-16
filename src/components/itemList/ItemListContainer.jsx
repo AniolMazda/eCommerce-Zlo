@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import ItemList from './ItemList.jsx'
-import { getProducts } from "../data/dataProducts.js";
+import useProducts from '../../hooks/useProducts'
+import ItemList from './ItemList'
+import { useParams } from 'react-router-dom'
+import Loading from '../Loading/Loading'
 
 function ItemListContainer() {
-	const [products, setProducts] = useState([]);
-
-    useEffect(()=>{
-        getProducts()
-        .then((data)=>{
-            setProducts(data);
-        })
-        .catch((error)=>{
-            console.error(error);
-        })
-    }, [])
+	const {products, loading} = useProducts()
+    const {idCategory} = useParams()
 
   	return (
-  		<ItemList arrayProductos={products} categoria="CDS"/>
+    <>
+        {  
+        loading === true ? (
+            <Loading />
+        ):(
+            <ItemList arrayProductos={products} categoria={idCategory === undefined ? "All Products" : idCategory} />
+        )
+        }
+    </>
   	)
 }
 

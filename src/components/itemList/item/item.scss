@@ -1,4 +1,31 @@
 @use "../../../scss/base/functions.scss";
+@use "sass:map";
 .card{
-    @include functions.flex(column,nowrap,center,flex-start);
+    @include functions.flex(column,nowrap,center,flex-start,$gap:0.3em);
+    flex-basis:30%;
+    margin:0 1%;
+    img{
+        transform:rotate(-5deg) scale(100%);
+        filter:saturate(90%);
+        @include functions.multiple-transition(transform, filter);
+        &:hover{
+            transform:rotate(0deg) scale(105%);
+            filter:saturate(110%);
+        }
+    }
+    .details-card{
+        @include functions.flex(row,nowrap,flex-start,center,$gap:0.8em);
+        width:100%;
+        h3{
+            @include functions.text(1.4em,600,map.get(functions.$colors,"color-void"),left,uppercase);
+        }
+        .category-card{
+            @include functions.text(1.3em,600,map.get(functions.$colors,"color-white"),left);
+            background-color:map.get(functions.$colors,"color-void");
+            padding:1% 2%;
+        }
+    }
+    .price-card{
+        @include functions.text(1.5em,600,map.get(functions.$colors,"color-dark-void"),left);
+    }
 }

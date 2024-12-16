@@ -1,0 +1,24 @@
+@use "../../scss/base/functions.scss";
+@use "sass:map";
+.item-details{
+	@include functions.grid(1fr 1fr, 1fr);
+	.item-info{
+		@include functions.flex(column, nowrap, flex-start, flex-start, $gap:1em);
+		h1{
+			@include functions.text(2.5em,700,map.get(functions.$colors,"color-void"),left,uppercase);
+			text-decoration:functions.$text-decoration-line;
+			margin-bottom:0;
+		}
+		.category-detail{
+			@include functions.text(1.5em,600,map.get(functions.$colors,"color-white"),left);
+            background-color:map.get(functions.$colors,"color-void");
+            padding:1% 2%;
+		}
+		article{
+			@include functions.text(1.3em,500,map.get(functions.$colors,"color-dark-void"),left);
+		}
+		.price-detail{
+			@include functions.text(1.8em,600,map.get(functions.$colors,"color-dark-void"),left);
+		}
+	}
+}

@@ -3,8 +3,11 @@ header{
 	@include functions.flex(row,nowrap,space-between,center);
 	padding-top:2%;
 	@include functions.position(sticky,$top:0);
-	img{
-		width:15%;
-		mix-blend-mode:functions.$mix-blend-mode;
+	z-index:1;
+	a{
+		width:20%;
+		img{
+			mix-blend-mode:functions.$mix-blend-mode;
+		}
 	}
 }

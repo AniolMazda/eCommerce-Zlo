@@ -1,4 +1,5 @@
 import './navbar.scss'
+import { Link } from 'react-router-dom'
 
 function Navbar({cambiarMenu,valorClaseMenu}) {
   return (
@@ -21,10 +22,10 @@ function Navbar({cambiarMenu,valorClaseMenu}) {
         </svg>
       </button>
       <ul>
-        <li><a href="#">CDs</a></li>
-        <li><a href="#">LPs</a></li>
-        <li><a href="#">T-Shirts</a></li>
-        <li><a href="#">Hoodies</a></li>
+        <li><Link to="/category/CDs">CDs</Link></li>
+        <li><Link to="/category/LPs">LPs</Link></li>
+        <li><Link to="/category/T-Shirts">T-Shirts</Link></li>
+        <li><Link to="/category/Hoodies">Hoodies</Link></li>
       </ul>
     </nav>
     </>
