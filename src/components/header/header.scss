@@ -1,13 +1,29 @@
 @use '../../scss/base/_functions.scss';
+@use "sass:map";
 header{
 	@include functions.flex(row,nowrap,space-between,center);
 	padding-top:2%;
 	@include functions.position(sticky,$top:0);
 	z-index:1;
+	mix-blend-mode: functions.$mix-blend-mode;
 	a{
 		width:20%;
-		img{
-			mix-blend-mode:functions.$mix-blend-mode;
+		svg{
+			display:block;
+			margin:0 auto;
+			max-height:200px;
+			max-width:316px;
+			fill:map.get(functions.$colors,"color-light-void");
+			@include functions.transition(fill);
+			@include functions.animation(logoWidth);
+			animation-timeline:scroll(root block);
+			&:hover{
+				fill:map.get(functions.$colors,"color-void");
+			}
 		}
 	}
+}
+@keyframes logoWidth{
+	from{ width:100%; }
+	to{ width:60%; }
 }

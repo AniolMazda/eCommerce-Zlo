@@ -5,16 +5,15 @@
 	margin-right:2%;
 	opacity:functions.$opacity;
 	@include functions.transition(opacity);
-	mix-blend-mode:functions.$mix-blend-mode;
 	width:16vw;
 	&:hover{
 		opacity:1;
 	}
 	svg{
-		fill:map.get(functions.$colors,"color-dark-void");
+		fill:map.get(functions.$colors,"color-light-void");
 		width:calc(functions.$icon-width*4);
 	}
 	p{
-		@include functions.text(3em,700,map.get(functions.$colors,"color-dark-void"),left,uppercase);
+		@include functions.text(3em,700,map.get(functions.$colors,"color-light-void"),left,uppercase);
 	}
 }

@@ -5,17 +5,16 @@ header{
 		@include functions.flex(row,nowrap,flex-start,stretch,$gap:5%);
 		opacity:functions.$opacity;
 		@include functions.transition(opacity);
-		mix-blend-mode:functions.$mix-blend-mode;
 		margin-left:2%;
 		width:16vw;
 		&:hover{
 			opacity:1;
 		}
 		a{
-			@include functions.text(3em,700,map.get(functions.$colors,"color-dark-void"),left,uppercase);
+			@include functions.text(3em,700,map.get(functions.$colors,"color-light-void"),left,uppercase);
 		}
 		svg{
-			fill:map.get(functions.$colors,"color-dark-void");
+			fill:map.get(functions.$colors,"color-light-void");
 			width:calc(functions.$icon-width*4);
 		}
 	}

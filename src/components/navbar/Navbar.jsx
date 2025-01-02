@@ -1,7 +1,7 @@
 import './navbar.scss'
 import { Link } from 'react-router-dom'
 
-function Navbar({cambiarMenu,valorClaseMenu}) {
+function Navbar({cambiarMenu,valorClaseMenu, condicionMenu}) {
   return (
     <>
     <button onClick={cambiarMenu}>
@@ -14,6 +14,7 @@ function Navbar({cambiarMenu,valorClaseMenu}) {
       </svg>
       <a>Menu</a>
     </button>
+    { condicionMenu === true &&
     <nav className={valorClaseMenu}>
       <button onClick={cambiarMenu}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -22,12 +23,13 @@ function Navbar({cambiarMenu,valorClaseMenu}) {
         </svg>
       </button>
       <ul>
-        <li><Link to="/category/CDs">CDs</Link></li>
-        <li><Link to="/category/LPs">LPs</Link></li>
-        <li><Link to="/category/T-Shirts">T-Shirts</Link></li>
-        <li><Link to="/category/Hoodies">Hoodies</Link></li>
+        <li onClick={cambiarMenu}><Link to="/category/CDs">CDs</Link></li>
+        <li onClick={cambiarMenu}><Link to="/category/LPs">LPs</Link></li>
+        <li onClick={cambiarMenu}><Link to="/category/T-Shirts">T-Shirts</Link></li>
+        <li onClick={cambiarMenu}><Link to="/category/Hoodies">Hoodies</Link></li>
       </ul>
     </nav>
+    }
     </>
   )
 }

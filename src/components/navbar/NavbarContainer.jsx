@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from './Navbar.jsx'
 function NavbarContainer() {
 	const [menu,setMenu] = useState(false);
-	const viewMenu = () =>{
-		setMenu( !menu );
+	const [init,setInit] = useState(false);
+	const handleViewMenu = () =>{
+		setMenu( !menu )
+		if(init){
+			setTimeout(() => {
+				setInit(false)
+			},900)
+		}else{
+			setInit(true)
+		}
 	}
   	return (
-  		menu === true ?
-    		<Navbar cambiarMenu={viewMenu} valorClaseMenu={"open-menu"}/>
-  		:	<Navbar cambiarMenu={viewMenu} valorClaseMenu={"close-menu"}/>
+  		<Navbar cambiarMenu={handleViewMenu} valorClaseMenu={menu === true ? "open-menu" : "close-menu"} condicionMenu={init}/>
   	)
 }
 

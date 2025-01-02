@@ -8,7 +8,6 @@ function ItemDetailsContainer() {
 	const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(false);
     const {idProduct} = useParams()
-    console.log(typeof(idProduct))
 
     useEffect(()=>{
         setLoading(true);
