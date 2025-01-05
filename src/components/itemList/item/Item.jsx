@@ -1,4 +1,5 @@
 import './item.scss'
+import Button from '../../button/Button'
 import { Link } from 'react-router-dom'
 
 function Item({producto}) {
@@ -11,9 +12,8 @@ function Item({producto}) {
           <p className="category-card">{producto.category}</p>
         </div>
         <p className="price-card">${producto.price}</p>
-        <Link to={"/detail/"+producto.id} className="boton-default">
-          <div className="top"><span>See Details</span></div>
-          <div className="bottom"><span>See Details</span></div>
+        <Link to={`/${producto.category}/${producto.id}`}>
+          <Button buttonName="See Details" />
         </Link>
     </div>
   )

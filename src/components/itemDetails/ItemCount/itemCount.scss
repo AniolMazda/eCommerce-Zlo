@@ -1,0 +1,27 @@
+@use "../../../scss/base/functions.scss";
+@use "sass:map";
+.buttons-cart{
+	width:100%;
+	.count{
+		@include functions.flex(row,nowrap,flex-start,center);
+		.count-button{
+			@include functions.grid(1fr,1fr,$justify-items:center,$align-items:center);
+			@include functions.text(1.8em,700,map.get(functions.$colors,"color-white"),left,uppercase);
+			background:map.get(functions.$colors,"color-light-void");
+			@include functions.transition(background);
+			height:45px;
+			width:45px;
+			&:hover{
+				background:map.get(functions.$colors,"color-void");
+			}
+		}
+		span{
+			@include functions.text(2em,500,map.get(functions.$colors,"color-void"),left,uppercase);
+			margin:0 2%;
+		}
+	}
+	a{
+		display:block;
+		margin-top:3%;
+	}
+}
