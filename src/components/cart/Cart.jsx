@@ -1,26 +1,18 @@
 import './cart.scss'
+import CartListContainer from './cartList/CartListContainer'
+import Button from '../button/Button'
 
-function HeaderCart({name,img,category,quantity,price}){
-  return(
-    <li className="header-cart">
-      <h2>{img}</h2>
-      <h2>{name}</h2>
-      <h2>{category}</h2>
-      <h2>{quantity}</h2>
-      <h2>{price}</h2>
-    </li>
-  )
-}
-function Cart({name,img,category,quantity,price}) {
+function Cart({productsCart,totalPrice, deleteProduct, deleteCart}) {
   return (
-    <li>
-      <img src={img} alt={`${category} de ${name}`}/>
-      <p>{name}</p>
-      <p>{category}</p>
-      <p>Cantidad: {quantity}</p>
-      <p>Precio Unitario: {price}</p>
-    </li>
+    <div className="cart">
+      <h1>Carrito</h1>
+      <CartListContainer cart={productsCart} deleteProduct={deleteProduct} />
+      <h3>Precio Total: {totalPrice}</h3>
+      <button className="clean-cart-button" onClick={deleteCart}>
+        <Button buttonName="Limpiar Carrito" />
+      </button>
+    </div>
   )
 }
 
-export {HeaderCart,Cart}
+export default Cart
