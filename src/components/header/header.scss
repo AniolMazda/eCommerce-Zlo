@@ -6,7 +6,7 @@ header{
 	@include functions.position(sticky,$top:0);
 	z-index:1;
 	mix-blend-mode: functions.$mix-blend-mode;
-	a{
+	.logo{
 		width:20%;
 		svg{
 			display:block;

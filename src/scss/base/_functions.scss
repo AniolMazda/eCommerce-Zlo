@@ -45,13 +45,13 @@
 	grid-template-rows:$grid-template-rows;
 	@if($grid-template-areas != false){
 		grid-template-areas:$grid-template-areas;
-	}@else if($justify-items != stretch){
+	}@if($justify-items != stretch){
 		justify-items:$justify-items;
-	}@else if($align-items != stretch){
+	}@if($align-items != stretch){
 		align-items:$align-items;
-	}@else if($justify-content != stretch){
+	}@if($justify-content != stretch){
 		justify-content:$justify-content;
-	}@else if($align-content != stretch){
+	}@if($align-content != stretch){
 		align-content:$align-content;
 	}
 }

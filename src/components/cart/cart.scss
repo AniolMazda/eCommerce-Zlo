@@ -1,0 +1,19 @@
+@use "../../scss/base/functions.scss";
+@use "sass:map";
+.cart-list{
+	@include functions.flex(column,nowrap,flex-start,center);
+	li{
+		@include functions.grid(repeat(6, 1fr),1fr,$justify-items:center,$align-items:center);
+		gap:2%;
+		width:100%;
+		img{
+			width:60%;
+		}
+	}
+	.header-cart{
+		margin-bottom:2%;
+		h2{
+			@include functions.text(1.3em,700,map.get(functions.$colors,"color-void-secondary"),left);
+		}
+	}
+}
