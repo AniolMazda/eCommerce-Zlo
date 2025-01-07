@@ -1,10 +1,18 @@
 import './cart-empty.scss'
+import {Link} from 'react-router-dom'
+import Button from '../../button/Button'
 
 function CartEmpty() {
 
   	return (
-        <div>
-            <h1>El carrito esta vacio</h1>
+        <div className="cart-empty">
+            <span>
+                <h1>El carrito esta vacio</h1>
+                <p>👿</p>
+            </span>
+            <Link to="/">
+                <Button buttonName="Ir a Inicio" />
+            </Link>
         </div>
   	)
 }

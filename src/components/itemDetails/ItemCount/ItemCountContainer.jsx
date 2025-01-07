@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ItemCount from './ItemCount'
 
-function ItemCountContainer({stock, addProductCart}) {
+function ItemCountContainer({stock, addProductCart, showItemCount}) {
 	const [count,setCount] = useState(1)
 
     const handleClickRemove = () => {
@@ -12,7 +12,8 @@ function ItemCountContainer({stock, addProductCart}) {
     }
 
   	return (
-        <ItemCount restar={handleClickRemove} sumar={handleClickAdd} valorCount={count} agregarAlCarrito={() => addProductCart(count)} /> 
+        <ItemCount restar={handleClickRemove} sumar={handleClickAdd} valorCount={count}
+        agregarAlCarrito={() => addProductCart(count)} showItemCount={showItemCount} /> 
   	)
 }
 

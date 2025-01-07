@@ -11,7 +11,7 @@ function CartWidget({quantity}) {
           <circle cx="34" cy="19" r="2"/>
           <circle cx="16" cy="19" r="2"/>
       </svg>
-      <p>{quantity}</p>
+      <p>{quantity !== 0 && quantity}</p>
     </>
   )
 }
