@@ -1,10 +1,14 @@
-import {createContext, useState} from 'react'
+import {createContext, useState, useEffect } from 'react'
 
 const CartContext = createContext()
 
 const CartProvider = ({children}) => {
+	const cartLocalStorage = JSON.parse(localStorage.getItem("cart-ecommerce"))
+	const [cart,setCart] = useState(cartLocalStorage ? cartLocalStorage : [])
 
-	const [cart,setCart] = useState([])
+	useEffect(() => {
+		localStorage.setItem("cart-ecommerce", JSON.stringify(cart))
+	},[cart])
 
 	const addProducts = (newProduct) => {
 		const index = cart.findIndex((product) => product.id === newProduct.id)
@@ -34,8 +38,6 @@ const CartProvider = ({children}) => {
 	const deleteCart = () => {
 		setCart([])
 	}
-
-	console.log(cart)
 
 	return(
 		<CartContext.Provider value={{ addProducts , cart, totalQuantity, totalPrice, deleteProductById, deleteCart }}>

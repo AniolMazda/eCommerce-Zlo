@@ -21,6 +21,7 @@ const useIndividualProduct = () => {
         .finally(()=>{
             setLoading(false);
         })
+
     }, [idProduct])
 
     return {product, loading}

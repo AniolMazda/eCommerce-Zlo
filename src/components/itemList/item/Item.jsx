@@ -12,7 +12,7 @@ function Item({producto}) {
           <p className="category-card">{producto.category}</p>
         </div>
         <p className="price-card">${producto.price}</p>
-        <Link to={`/${producto.category}/${producto.id}`}>
+        <Link to={`/product/${producto.id}`}>
           <Button buttonName="See Details" />
         </Link>
     </div>

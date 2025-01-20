@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext'
 import ItemDetails from './ItemDetails'
 import { useParams } from 'react-router-dom'
 import Loading from '../Loading/Loading'
+import ItemEmpty from '../ItemEmpty/ItemEmpty'
 
 function ItemDetailsContainer() {
     const {product,loading} = useIndividualProduct()
@@ -19,16 +20,17 @@ function ItemDetailsContainer() {
         //Cambio de estado, que al dar click pasa a ser false el ItemCount
         setShowItemCount(false)
     }
+    
+    if(loading){
+        return <Loading />
+    }
+
+    if(product === undefined){
+        return <ItemEmpty />
+    }
 
   	return (
-        <>{
-            loading === true ? (
-                <Loading />
-            ) : (
-                <ItemDetails producto={product} addProductCart={addProductCart} showItemCount={showItemCount} />
-            )
-        }
-        </>
+        <ItemDetails producto={product} addProductCart={addProductCart} showItemCount={showItemCount} />
   	)
 }
 

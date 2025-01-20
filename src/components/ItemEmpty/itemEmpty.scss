@@ -1,0 +1,17 @@
+@use "../../scss/base/functions.scss";
+@use "sass:map";
+.item-empty{
+	@include functions.flex(column,nowrap,center,center);
+	width:100%;
+	height:100%;
+	span{
+		@include functions.flex(column,nowrap,flex-start,center,$gap:0.5em);
+		margin-bottom:2%;
+		h1{
+			margin-bottom:0%;
+		}
+		p{
+			font-size:3em;
+		}
+	}
+}
