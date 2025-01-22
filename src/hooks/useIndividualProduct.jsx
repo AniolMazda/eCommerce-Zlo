@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
-import {getProducts} from '../components/data/dataProducts.js'
+import { doc, getDoc } from 'firebase/firestore'
+import db from '../db/db.js'
 import { useParams } from 'react-router-dom'
 
 const useIndividualProduct = () => {
@@ -7,21 +8,21 @@ const useIndividualProduct = () => {
     const [loading, setLoading] = useState(false);
     const {idProduct} = useParams()
 
+    const getProduct = async () => {
+        try{
+            const docRef = doc(db, 'products', idProduct)
+            const dataDB = await getDoc(docRef)
+            const data = {...dataDB.data(), id: dataDB.id}
+            setProduct(data)
+            setLoading(false)
+        }catch(error){
+            console.log(error)
+        }
+    }
+
    useEffect(()=>{
         setLoading(true);
-
-        getProducts()
-        .then((data)=>{
-            const productFind = data.find((dataProduct) => dataProduct.id === parseInt(idProduct));
-            setProduct(productFind);
-        })
-        .catch((error)=>{
-            console.error(error);
-        })
-        .finally(()=>{
-            setLoading(false);
-        })
-
+        getProduct()
     }, [idProduct])
 
     return {product, loading}
