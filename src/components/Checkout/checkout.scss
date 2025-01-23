@@ -1,0 +1,35 @@
+@use "../../scss/base/functions.scss";
+@use "sass:map";
+.checkout{
+    width: 70%;
+    form{
+        @include functions.flex(column,nowrap,center,center,$gap:1.2em);
+        span{
+            @include functions.flex(row,nowrap,center,center);
+            width: 100%;
+            label{
+                @include functions.text(1.2em,500,map.get(functions.$colors,"color-void"),left);
+                margin-right:2%;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="phone"]{
+            padding: 1%;
+            background-color: map.get(functions.$colors,"color-light-grey");
+            color:map.get(functions.$colors,"color-dark-void");
+            border:none;
+            font-family: inherit;
+            font-size: 1em;
+            @include functions.transition(background-color);
+            }
+            &:focus, &:focus-visible{
+                outline: none;
+            }
+        }
+    }
+}
+.checkout-empty{
+    .order-id{
+        @include functions.text(1.5em,600,map.get(functions.$colors,"color-void"),center);
+    }
+}

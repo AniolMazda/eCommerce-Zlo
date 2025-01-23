@@ -9,12 +9,14 @@ function Cart({productsCart,totalPrice, deleteProduct, deleteCart}) {
       <h1>Carrito</h1>
       <CartListContainer cart={productsCart} deleteProduct={deleteProduct} />
       <h3>Precio Total: {totalPrice}</h3>
-      <a className="clean-cart-button" onClick={deleteCart}>
-        <Button buttonName="Limpiar Carrito" />
-      </a>
-      <Link to="/checkout">
-        <Button buttonName="Continuar Con La Compra" />
-      </Link>
+      <div className="cart-buttons">
+        <a className="clean-cart-button" onClick={deleteCart}>
+          <Button buttonName="Limpiar Carrito" />
+        </a>
+        <Link to="/checkout">
+          <Button buttonName="Continuar Con La Compra" />
+        </Link>
+      </div>
     </div>
   )
 }

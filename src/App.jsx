@@ -3,6 +3,7 @@ import Header from './components/header/Header.jsx'
 import Main from './components/main/Main.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
+import { ToastContainer } from 'react-toastify'
 function App() {
 
   return (
@@ -10,6 +11,7 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <Header />
+          <ToastContainer theme="dark" />
           <Main />
         </CartProvider>
       </BrowserRouter>

@@ -5,8 +5,11 @@
 		@include functions.text(1.5em,700,map.get(functions.$colors,"color-void"),left);
 		margin-top:3%;
 	}
-	.clean-cart-button{
-		display:block;
+	.cart-buttons{
 		margin-top:2%;
+		@include functions.flex(row, nowrap, flex-start, flex-start, $gap:2%);
+		.clean-cart-button{
+			display:block;
+		}
 	}
 }
